@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover Transform Example</title>
+    <style>
+      * {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    position: relative;
+}
+
+.element {
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #6200ea;
+    color: white;
+    border-radius: 10px;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+.star {
+    width: 100px;
+    height: 100px;
+    background: transparent;
+    position: absolute;
+    top: -10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    background-color: gold;
+    transition: transform 0.5s ease;
+}
+
+.translate:hover ~ .star {
+    transform: translate(-50%, -50%) translate(50px, 0);
+}
+
+.rotate:hover ~ .star {
+    transform: translate(-50%, -50%) rotate(360deg);
+}
+
+.scale:hover ~ .star {
+    transform: translate(-50%, -50%) scale(1.5);
+}
+
+.skew:hover ~ .star {
+    transform: translate(-50%, -50%) skewX(20deg);
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="element translate">Translate</div>
+        <div class="element rotate">Rotate</div>
+        <div class="element scale">Scale</div>
+        <div class="element skew">Skew</div>
+        <div class="star"></div>
+    </div>
+</body>
+</html>
